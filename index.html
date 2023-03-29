@@ -5,19 +5,36 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      html {
+        --color-primary: lightblue;
+        font-family: sans-serif;
+      }
+
+      uc-tooltip {
+        border: 1px solid blue;
+        padding: 0.15rem;
+      }
+
+      .highlight {
+        /* background-color: lightsalmon; */
+      }
+    </style>
     <script src="./tooltip.js"></script>
+    <script src="./confirm-link.js"></script>
   </head>
   <body>
-    <template id="tooltip-template">
-      <span> (?)</span>
-    </template>
+    <template id="tooltip-template"></template>
     <p>
-      <uc-tooltip text="Web Components is a set of standards.">
-        Web Components
+      <uc-tooltip
+        class="important"
+        text="Web Components is a set of standards."
+      >
+        <span class="highlight">Web Components</span>
       </uc-tooltip>
       are awesome
     </p>
     <uc-tooltip>Here we go!</uc-tooltip>
-    <a href=""></a>
+    <a is="uc-confirm-link" href="https://www.google.com">Google</a>
   </body>
 </html>
