@@ -35,11 +35,20 @@
   </head>
   <body>
     <template id="tooltip-template"></template>
+    <!-- <button disabled></button> -->
     <uc-modal>
       <p>With your confirmation you agree to pay the full amount.</p>
     </uc-modal>
     <p>Please confirm your choice.</p>
     <button>Show details and confirm</button>
+    <script>
+      const confirmButton = document.querySelector('button')
+      const modal = document.querySelector('uc-modal')
+
+      confirmButton.addEventListener('click', () => {
+        modal.setAttribute('opened', '')
+      })
+    </script>
     <!-- <uc-tooltip
         class="important"
         text="Web Components is a set of standards."
