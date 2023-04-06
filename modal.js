@@ -3,6 +3,7 @@ class Modal extends HTMLElement {
     super()
 
     this.attachShadow({ mode: 'open' })
+    this.isOpen = false
     this.shadowRoot.innerHTML = `
       <style>
         #backdrop {
@@ -83,6 +84,11 @@ class Modal extends HTMLElement {
   // static get observedAttributes() {
   //   return ['opened']
   // }
+
+  open() {
+    this.setAttribute('opened', '')
+    this.isOpen = true
+  }
 }
 
 customElements.define('uc-modal', Modal)
