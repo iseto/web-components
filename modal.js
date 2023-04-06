@@ -72,8 +72,8 @@ class Modal extends HTMLElement {
           <slot></slot>
         </section>
         <section id="actions">
-          <button>Cancel</button>
-          <button>Confirm</button>
+          <button id="cancel-btn">Cancel</button>
+          <button id="confirm-btn">Confirm</button>
         </section>
       </div>
     `
@@ -82,6 +82,12 @@ class Modal extends HTMLElement {
     slots[1].addEventListener('slotchange', (event) => {
       console.dir(slots[1].assignedNodes())
     })
+
+    const confirmButton = this.shadowRoot.querySelector('#confirm-btn')
+    const cancelButton = this.shadowRoot.querySelector('#cancel-btn')
+
+    cancelButton.addEventListener('click', this._cancel.bind(this))
+    confirmButton.addEventListener('click', this._confirm.bind(this))
   }
 
   // attributeChangedCallback(name, oldValue, newValue) {}
@@ -90,9 +96,23 @@ class Modal extends HTMLElement {
   //   return ['opened']
   // }
 
+  // convention: public method is written without _ as prefix.
   open() {
     this.setAttribute('opened', '')
     this.isOpen = true
+  }
+
+  hide() {
+    this.hasAttribute('opened') && this.removeAttribute('opened')
+    this.isOpen = false
+  }
+
+  _cancel() {
+    this.hide()
+  }
+
+  _confirm() {
+    this.hide()
   }
 }
 
