@@ -1,4 +1,4 @@
-import { Component, Prop, State, h } from '@stencil/core';
+import { Component, Method, Prop, State, h } from '@stencil/core';
 
 @Component({
   tag: 'uc-side-drawer',
@@ -8,15 +8,20 @@ import { Component, Prop, State, h } from '@stencil/core';
 export class SideDrawer {
   @State() showContactInfo = false;
   @Prop({ reflect: true }) title: string;
-  @Prop({ reflect: true, mutable: true }) open: boolean;
+  @Prop({ reflect: true, mutable: true }) opened: boolean;
 
   onCloseDrawer() {
-    this.open = false;
+    this.opened = false;
   }
 
   onContentChange(content: string) {
     console.log(content);
     this.showContactInfo = content == 'contact';
+  }
+
+  @Method()
+  open() {
+    this.opened = true;
   }
 
   render() {

@@ -21,7 +21,8 @@ export namespace Components {
         "middle": string;
     }
     interface UcSideDrawer {
-        "open": boolean;
+        "open": () => Promise<void>;
+        "opened": boolean;
         "title": string;
     }
 }
@@ -59,7 +60,7 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
     interface UcSideDrawer {
-        "open"?: boolean;
+        "opened"?: boolean;
         "title"?: string;
     }
     interface IntrinsicElements {
