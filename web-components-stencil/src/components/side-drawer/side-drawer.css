@@ -7,7 +7,7 @@ aside {
   height: 100vh;
   background: #f3f3f3;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  transform: left 0.3s ease-out;
+  transform: left 0.3s ease;
 }
 
 :host([open]) aside {
@@ -17,10 +17,26 @@ aside {
 header {
   padding: 1rem;
   background: black;
+  position: relative;
 }
 
 header h1 {
   font-size: 1.5rem;
   color: white;
   margin: 0;
+}
+
+header button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1rem;
+  color: white;
+  background: transparent;
+  font-size: 2rem;
+  border: none;
+}
+
+header button:focus {
+  outline: none;
 }
