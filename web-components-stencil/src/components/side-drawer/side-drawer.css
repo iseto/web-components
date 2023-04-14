@@ -68,3 +68,7 @@ header button:focus {
 #tabs button:focus {
   outline: none;
 }
+
+#contach-information {
+  padding: 0 1rem;
+}
