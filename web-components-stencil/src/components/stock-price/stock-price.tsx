@@ -9,8 +9,17 @@ import { AV_API_KEY } from '../../global';
 })
 export class StockPrice {
   stockInput: HTMLInputElement;
+
   @Element() el: HTMLElement;
+
   @State() fetchedPrice: number;
+  @State() stockUserInput: string;
+  @State() stockInputValid = false;
+
+  onUserInput(event: Event) {
+    this.stockUserInput = (event.target as HTMLInputElement).value;
+    this.stockInputValid = this.stockUserInput.trim() !== '' ? true : false;
+  }
 
   onFetchStockSubmit(event: Event) {
     event.preventDefault();
@@ -29,8 +38,10 @@ export class StockPrice {
     return [
       <form onSubmit={this.onFetchStockSubmit.bind(this)}>
         <div>
-          <input type="text" id="stock-symbol" ref={el => (this.stockInput = el)} />
-          <button type="submit">Fetch</button>
+          <input type="text" id="stock-symbol" ref={el => (this.stockInput = el)} value={this.stockUserInput} onInput={this.onUserInput.bind(this)} />
+          <button type="submit" disabled={!this.stockInputValid}>
+            Fetch
+          </button>
         </div>
       </form>,
       <div>
