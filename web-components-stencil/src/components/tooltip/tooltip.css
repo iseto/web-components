@@ -1,6 +1,6 @@
-:host([opened]) .tooltip-text {
-  display: block;
-}
+/* :host([opened]) .tooltip-text { */
+/* display: block; */
+/* } */
 
 .tooltip-icon {
   margin-left: 0.5rem;
@@ -13,7 +13,7 @@
 }
 
 .tooltip-text {
-  display: none;
+  /* display: none; */
   font-weight: normal;
   background-color: black;
   color: white;

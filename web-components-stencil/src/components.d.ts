@@ -26,7 +26,7 @@ export namespace Components {
         "title": string;
     }
     interface UcTooltip {
-        "opened": boolean;
+        "text": string;
     }
 }
 declare global {
@@ -74,7 +74,7 @@ declare namespace LocalJSX {
         "title"?: string;
     }
     interface UcTooltip {
-        "opened"?: boolean;
+        "text"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

@@ -6,7 +6,9 @@ import { Component, Prop, State, h } from '@stencil/core';
   shadow: true,
 })
 export class Tooltip {
-  @State() showTooltip = false;
+  // first attempt
+  /**
+   * @State() showTooltip = false;
   @Prop({ reflect: true, mutable: true }) opened: boolean;
 
   tooltipButton = document.querySelector('button');
@@ -29,5 +31,31 @@ export class Tooltip {
         {tooltipContent}
       </p>,
     ];
+  }**/
+
+  // improvement
+  @State() showTooltip = false;
+
+  @Prop() text: string;
+
+  onRenderTooltip() {
+    this.showTooltip = !this.showTooltip;
+  }
+
+  render() {
+    let tooltipContent = null;
+    if (this.showTooltip) {
+      tooltipContent = <span class="tooltip-text">{this.text}</span>;
+    }
+
+    return (
+      <p>
+        <slot>Let's test this new Tooltip!</slot>
+        <button class="tooltip-icon" onClick={this.onRenderTooltip.bind(this)}>
+          ?
+        </button>
+        {tooltipContent}
+      </p>
+    );
   }
 }
