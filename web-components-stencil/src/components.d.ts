@@ -23,9 +23,10 @@ export namespace Components {
     interface UcSideDrawer {
         "open": () => Promise<void>;
         "opened": boolean;
-        "title": string;
+        "sidedrawer_title": string;
     }
     interface UcStockPrice {
+        "stockSymbol": string;
     }
 }
 declare global {
@@ -70,9 +71,10 @@ declare namespace LocalJSX {
     }
     interface UcSideDrawer {
         "opened"?: boolean;
-        "title"?: string;
+        "sidedrawer_title"?: string;
     }
     interface UcStockPrice {
+        "stockSymbol"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
