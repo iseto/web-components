@@ -31,6 +31,10 @@ export namespace Components {
         "stockSymbol": string;
     }
 }
+export interface UcStockFinderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLUcStockFinderElement;
+}
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -83,6 +87,7 @@ declare namespace LocalJSX {
         "sidedrawer_title"?: string;
     }
     interface UcStockFinder {
+        "onUcSymbolSelected"?: (event: UcStockFinderCustomEvent<string>) => void;
     }
     interface UcStockPrice {
         "stockSymbol"?: string;
