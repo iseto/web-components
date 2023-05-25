@@ -29,7 +29,7 @@
   </head>
   <body>
     <button id="side-drawer-btn">Open side menu</button>
-    <uc-side-drawer title="Main Menu">
+    <uc-side-drawer sidedrawer_title="Main Menu">
       <nav class="side-nav">
         <ul>
           <li><a href="#">A link</a></li>
@@ -38,6 +38,9 @@
         </ul>
       </nav>
     </uc-side-drawer>
+
+    <uc-stock-price stock-symbol="AAPL"></uc-stock-price>
+    <uc-stock-finder></uc-stock-finder>
 
     <script>
       const sideDrawerButton = document.querySelector('#side-drawer-btn');
