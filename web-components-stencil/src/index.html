@@ -22,6 +22,12 @@
         text-decoration: none;
         color: black;
       }
+
+      html {
+        --color-primary: #3b013b;
+        --color-primary-inverse: white;
+        --color-primary-highlight: #750175;
+      }
     </style>
 
     <script type="module" src="/build/web-components-stencil.esm.js"></script>
@@ -57,6 +63,11 @@
       setTimeout(() => {
         // sideDrawer.title = 'It changed';
       }, 3000);
+
+      // const stockFinderEl = document.querySelector('uc-stock-finder');
+      // stockFinderEl.addEventListener('ucSymbolSelected', event => {
+      //   console.log(event);
+      // });
     </script>
   </body>
 </html>
